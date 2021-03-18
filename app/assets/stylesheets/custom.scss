@@ -280,7 +280,7 @@ form {
   margin: 10px;
 
   .users-list li {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     text-transform: capitalize;
     font-size: 1.2em;
   }
@@ -289,6 +289,19 @@ form {
     font-size: 0.8em;
     margin: 0 0 8px 0;
     color: $primary-color-dark;
+  }
+
+  div {
+    padding: 2px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    background-color: #689f38;
+    color: #fff;
+    font-size: medium;
+    padding: 2px 5px;
+    border-radius: 2px;
   }
 }
 

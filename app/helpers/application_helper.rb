@@ -15,4 +15,13 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def send_or_recall_friend_request(user)
+    request = Friendship.find_by(user: current_user, friend: user)
+    if request
+      link_to('Recall friend request', user_friendship_path(id: request.id, friend_id: user.id), method: :delete, class: 'btn-primary')
+    else
+      link_to('Send friend request', user_friendships_path(user_id: current_user.id, friend_id: user.id, confirmed: false), method: :post, class: 'btn-primary')
+    end
+  end
 end
