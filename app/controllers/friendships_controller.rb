@@ -10,13 +10,13 @@ class FriendshipsController < ApplicationController
     end
     
     def destroy
-        # like = Like.find_by(id: params[:id], user: current_user, post_id: params[:post_id])
-        # if like
-        #   like.destroy
-        #   redirect_to posts_path, notice: 'You disliked a post.'
-        # else
-        #   redirect_to posts_path, alert: 'You cannot dislike post that you did not like before.'
-        # end
+        friendship = Friendship.find_by(friend_id: params[:friend_id], user: current_user)
+        if friendship
+          friendship.destroy
+          redirect_to users_path, notice: 'You recalled friend request.'
+        else
+          redirect_to users_path, alert: 'You cannot recall friend request that you recalled already.'
+        end
     end
     
     private
