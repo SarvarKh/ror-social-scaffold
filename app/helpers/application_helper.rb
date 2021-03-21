@@ -44,7 +44,5 @@ module ApplicationHelper
     link_to('Accept a friend request', user_friendship_path(id: request.id, user_id: current_user.id, friend_id: user.id), method: :patch, class: 'btn-primary')
   end
 
-  def reject_friend_request(user)
-    
-  end
+  def reject_friend_request(user); end
 end
