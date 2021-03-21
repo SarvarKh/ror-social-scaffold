@@ -294,24 +294,6 @@ form {
   div {
     padding: 2px;
   }
-
-  .btn-primary {
-    width: 100%;
-    background-color: #689f38;
-    color: #fff;
-    font-size: medium;
-    padding: 2px 5px;
-    border-radius: 2px;
-  }
-
-  .btn-alert {
-    width: 100%;
-    background-color: #f6cfc6;
-    color: #212121;
-    font-size: medium;
-    padding: 2px 5px;
-    border-radius: 2px;
-  }
 }
 
 .user-section {
@@ -342,6 +324,24 @@ form {
   ul {
     color: #f00;
   }
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #689f38;
+  color: #fff;
+  font-size: medium;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
+.btn-alert {
+  width: 100%;
+  background-color: #f6cfc6;
+  color: #212121;
+  font-size: medium;
+  padding: 2px 5px;
+  border-radius: 2px;
 }
 
 @media only screen and (min-width: 480px) {
