@@ -1,4 +1,8 @@
 class FriendshipsController < ApplicationController
+    def index
+      @invitations = Friendship.where(friend_id: current_user.id, confirmed: false)
+    end
+
     def create
         @friendship = current_user.friendships.new(friendship_params)
     

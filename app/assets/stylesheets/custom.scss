@@ -38,7 +38,7 @@ a {
 .nav {
   display: flex;
   justify-content: space-between;
-  padding: 16px 48px;
+  padding: 16px 30px;
   background-color: $primary-color-dark;
   color: $primary-color-light;
 
@@ -344,6 +344,25 @@ form {
   border-radius: 2px;
 }
 
+.margin-right {
+  padding-right: 5px;
+}
+
+.invitations-section {
+  margin: 10px;
+  
+  .pending-invitations li {
+    margin-bottom: 24px;
+    text-transform: capitalize;
+    font-size: 1.2em;
+  }
+
+  .profile-link {
+    font-size: 0.8em;
+    margin: 0 0 8px 0;
+    color: $primary-color-dark;
+  }
+}
 @media only screen and (min-width: 480px) {
   form {
     width: 60%;

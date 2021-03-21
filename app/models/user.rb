@@ -12,14 +12,4 @@ class User < ApplicationRecord
 
   has_many :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
-  
-
-  def self.my_pending_invitations
-    pending_invitations = []
-    current_user.friendships.where(friend_id: current_user.id, confirmed: false).map do |invitation|
-      pending_invitations.push(Users.find(invitation.user_id))
-    end
-    pending_invitations
-  end
-
 end

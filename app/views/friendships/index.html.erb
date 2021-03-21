@@ -1,0 +1,13 @@
+<div class="invitations-section">
+    <h3>Pending friend request invitations:</h3><br>
+    <% invitations_array(@invitations).map do |pendig_user| %>
+        <ul class="pending-invitations">
+            <li>    
+                Name: <%= pendig_user.name %>
+                <span class="profile-link">
+                    <%= link_to 'See Profile',  user_path(pendig_user), class: 'profile-link' %>
+                </span>
+            </li>
+        </ul>    
+    <% end %>
+</div>
