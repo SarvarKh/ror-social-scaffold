@@ -1,17 +1,34 @@
 <div class="invitations-section">
-    <h3>Pending friend request invitations:</h3><br>
-    <% invitations_array(@invitations).map do |pendig_user| %>
-        <ul class="pending-invitations">
-            <li>    
-                Name: <%= pendig_user.name %>
-                <span class="profile-link">
-                    <%= link_to 'See Profile',  user_path(pendig_user), class: 'profile-link' %>
-                </span>
-                <div>
-                    <%= accept_friend_request(pendig_user) %>
-                    <%= reject_friend_request(pendig_user) %>
-                </div>
-            </li>
-        </ul>    
+    
+    <% if connections_array(@invitations).length > 0 %>
+        <h3>Pending friend request invitations:</h3><br>
+        <% connections_array(@invitations).map do |pendig_user| %>
+            <ul class="pending-invitations">
+                <li>    
+                    Name: <%= pendig_user.name %>
+                    <span class="profile-link">
+                        <%= link_to 'See Profile',  user_path(pendig_user), class: 'profile-link' %>
+                    </span>
+                    <div>
+                        <%= accept_friend_request(pendig_user) %>
+                        <%= reject_friend_request(pendig_user) %>
+                    </div>
+                </li>
+            </ul>    
+        <% end %>
+    <% end %>
+
+    <% if connections_array(@friends).length > 0 %>
+        <h3>My friends:</h3><br>
+        <% connections_array(@friends).map do |friend| %>
+            <ul class="pending-invitations">
+                <li>    
+                    Name: <%= friend.name %>
+                    <span class="profile-link">
+                        <%= link_to 'See Profile',  user_path(friend), class: 'profile-link' %>
+                    </span>
+                </li>
+            </ul>    
+        <% end %>
     <% end %>
 </div>

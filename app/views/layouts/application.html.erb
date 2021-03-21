@@ -23,7 +23,7 @@
           <%= link_to current_user.name, user_path(current_user.id) %>
         </div>
         <div class="menu-item margin-right">
-          <%= pending_invitations %>
+          <%= conntections %>
         </div>
         <%= link_to 'Sign_out', destroy_user_session_path, method: :delete %>
       <% else %>

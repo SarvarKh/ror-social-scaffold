@@ -25,11 +25,11 @@ module ApplicationHelper
     end
   end
 
-  def pending_invitations
-    link_to('Invitations', user_friendships_path(user_id: current_user.id, confirmed: false), method: :get, class: 'btn-primary')
+  def conntections
+    link_to('Connections', user_friendships_path(user_id: current_user.id, confirmed: false), method: :get, class: 'btn-primary')
   end
 
-  def invitations_array(friend_id_array)
+  def connections_array(friend_id_array)
     pending_users = []
     friend_id_array.each do |e|
       pending_users.push(User.find(e.user_id))
