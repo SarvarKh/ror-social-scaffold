@@ -12,6 +12,12 @@ class FriendshipsController < ApplicationController
           redirect_to users_path, alert: 'You already sent a friend request.'
         end
     end
+
+    def update
+      friendship = Friendship.find_by(friend_id: current_user, user: params[:friend_id])
+      friendship.update(confirmed: true)
+      redirect_to user_friendships_path, notice: 'You accepted a friend request.'
+    end
     
     def destroy
         friendship = Friendship.find_by(friend_id: params[:friend_id], user: current_user)

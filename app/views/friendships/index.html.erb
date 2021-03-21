@@ -7,6 +7,10 @@
                 <span class="profile-link">
                     <%= link_to 'See Profile',  user_path(pendig_user), class: 'profile-link' %>
                 </span>
+                <div>
+                    <%= accept_friend_request(pendig_user) %>
+                    <%= reject_friend_request(pendig_user) %>
+                </div>
             </li>
         </ul>    
     <% end %>

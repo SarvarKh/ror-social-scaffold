@@ -36,4 +36,13 @@ module ApplicationHelper
     end
     pending_users
   end
+
+  def accept_friend_request(user)
+    request = Friendship.find_by(user: user, friend: current_user)
+    link_to('Accept a friend request', user_friendship_path(id: request.id, user_id: current_user.id, friend_id: user.id), method: :patch, class: 'btn-primary')
+  end
+
+  def reject_friend_request(user)
+    
+  end
 end
