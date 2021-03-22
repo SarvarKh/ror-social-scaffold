@@ -16,8 +16,24 @@ module ApplicationHelper
     end
   end
 
+  def friends?(user)
+    friends = Friendship.find_by(user_id: user.id, friend_id: current_user.id, confirmed: true)
+    friends_inverse = Friendship.find_by(user_id: current_user.id, friend_id: user.id, confirmed: true)
+    if friends || friends_inverse 
+      true
+    end
+    false
+  end
+
+  def request_sent?(user)
+    request = Friendship.find_by(user_id: user.id, friend_id: current_user.id, confirmed: false)
+    if request
+      true
+    end
+  end
+
   def send_or_recall_friend_request(user)
-    if current_user != user
+    if current_user != user && !friends?(user) && !request_sent?(user)
       request = Friendship.find_by(user: current_user, friend: user)
       if request
         link_to('Recall friend request', user_friendship_path(id: request.id, user_id: current_user.id, friend_id: user.id), method: :delete, class: 'btn-alert')
@@ -27,7 +43,7 @@ module ApplicationHelper
     end
   end
 
-  def conntections
+  def connections
     link_to('Connections', user_friendships_path(user_id: current_user.id, confirmed: false), method: :get, class: 'btn-primary')
   end
 
@@ -39,10 +55,20 @@ module ApplicationHelper
     pending_users
   end
 
+  def connections_array_inverse(user_id_array)
+    users = []
+    user_id_array.each do |e|
+      users.push(User.find(e.friend_id))
+    end
+    users
+  end
+
   def accept_friend_request(user)
     request = Friendship.find_by(user: user, friend: current_user)
     link_to('Accept a friend request', user_friendship_path(id: request.id, user_id: current_user.id, friend_id: user.id), method: :patch, class: 'btn-primary')
   end
 
-  def reject_friend_request(user); end
+  def reject_friend_request(user)
+    
+  end
 end

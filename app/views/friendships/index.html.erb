@@ -31,4 +31,18 @@
             </ul>    
         <% end %>
     <% end %>
+
+    <% if connections_array_inverse(@friends_inverse).length > 0 %>
+        <h3>My friends:</h3><br>
+        <% connections_array_inverse(@friends_inverse).map do |friend| %>
+            <ul class="pending-invitations">
+                <li>    
+                    Name: <%= friend.name %>
+                    <span class="profile-link">
+                        <%= link_to 'See Profile',  user_path(friend), class: 'profile-link' %>
+                    </span>
+                </li>
+            </ul>    
+        <% end %>
+    <% end %>
 </div>
