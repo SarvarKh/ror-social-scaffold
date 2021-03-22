@@ -17,12 +17,8 @@ module ApplicationHelper
   end
 
   def friends?(user)
-    friends = Friendship.find_by(user_id: user.id, friend_id: current_user.id, confirmed: true)
-    friends_inverse = Friendship.find_by(user_id: current_user.id, friend_id: user.id, confirmed: true)
-    if friends || friends_inverse 
-      true
-    end
-    false
+    friend = Friendship.find_by(user_id: current_user.id, friend_id: user.id, confirmed: true) || Friendship.find_by(user_id: user.id, friend_id: current_user.id, confirmed: true)
+    friend
   end
 
   def request_sent?(user)
@@ -33,8 +29,8 @@ module ApplicationHelper
   end
 
   def send_or_recall_friend_request(user)
-    if current_user != user && !friends?(user) && !request_sent?(user)
-      request = Friendship.find_by(user: current_user, friend: user)
+    if current_user != user && !friends?(user)
+      request = Friendship.find_by(user_id: current_user.id, friend_id: user.id, confirmed: false)
       if request
         link_to('Recall friend request', user_friendship_path(id: request.id, user_id: current_user.id, friend_id: user.id), method: :delete, class: 'btn-alert')
       else
