@@ -98,6 +98,15 @@ a {
   color: red;
 }
 
+.btn-primary {
+  width: 100%;
+  background-color: #689f38;
+  color: #fff;
+  font-size: medium;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
 .new_post,
 .new_comment {
   display: flex;
@@ -326,15 +335,6 @@ form {
   }
 }
 
-.btn-primary {
-  width: 100%;
-  background-color: #689f38;
-  color: #fff;
-  font-size: medium;
-  padding: 2px 5px;
-  border-radius: 2px;
-}
-
 .btn-alert {
   width: 100%;
   background-color: #f6cfc6;
@@ -350,7 +350,7 @@ form {
 
 .invitations-section {
   margin: 10px;
-  
+
   .pending-invitations li {
     margin-bottom: 24px;
     text-transform: capitalize;
@@ -363,6 +363,7 @@ form {
     color: $primary-color-dark;
   }
 }
+
 @media only screen and (min-width: 480px) {
   form {
     width: 60%;
