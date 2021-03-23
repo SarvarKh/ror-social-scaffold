@@ -11,6 +11,10 @@
 </div>
 
 <div align="center">
+  <img src="02_all_users2.png?raw=true" width="auto" height="auto"/>
+</div>
+
+<div align="center">
   <img src="03_connections.png?raw=true" width="auto" height="auto"/>
 </div>
 
