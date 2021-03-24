@@ -22,6 +22,10 @@
   <img src="04_profile.png?raw=true" width="auto" height="auto"/>
 </div>
 
+<div align="center">
+  <img src="01_current_db.png?raw=true" width="auto" height="auto"/>
+</div>
+
 ## Built With
 
 - Ruby 2.7.1
