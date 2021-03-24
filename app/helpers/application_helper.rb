@@ -29,7 +29,7 @@ module ApplicationHelper
   end
 
   def send_or_recall_friend_request(user)
-    show_friend_request_btns(user) unless current_user == user || friends?(user)
+    show_friend_request_btns(user) unless current_user == user || friends?(user) || request_sent?(user)
   end
 
   def show_friend_request_btns(user)
