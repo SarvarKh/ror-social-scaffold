@@ -27,10 +27,8 @@ class FriendshipsController < ApplicationController
 
   def destroy
     friendship = Friendship.find_by(friend_id: params[:friend_id], user: current_user)
-    friendship_second = Friendship.find_by(user_id: params[:friend_id], friend_id: current_user.id)
-    if friendship && friendship_second
+    if friendship
       friendship.destroy
-      friendship_second.destroy
       redirect_to users_path, notice: 'You recalled friend request.'
     else
       redirect_to users_path, alert: 'You cannot recall friend request that you recalled already.'
