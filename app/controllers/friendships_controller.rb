@@ -20,7 +20,9 @@ class FriendshipsController < ApplicationController
 
   def update
     friendship = Friendship.find_by(friend_id: current_user, user: params[:friend_id])
+    friendship_second = Friendship.find_by(user_id: current_user.id, friend_id: params[:friend_id])
     friendship.update(confirmed: true)
+    friendship_second.update(confirmed: true)
     redirect_to user_friendships_path, notice: 'You accepted a friend request.'
   end
 
