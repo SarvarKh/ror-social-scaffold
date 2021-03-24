@@ -29,9 +29,13 @@ class FriendshipsController < ApplicationController
 
   def destroy
     friendship = Friendship.find_by(friend_id: params[:friend_id], user: current_user)
+    declined_friendship = Friendship.find_by(friend_id: params[:friend_id], user: params[:user_id])
     if friendship
       friendship.destroy
       redirect_to users_path, notice: 'You recalled friend request.'
+    elsif declined_friendship
+      declined_friendship.destroy
+      redirect_to user_friendships_path, notice: 'You declined friend request.'
     else
       redirect_to users_path, alert: 'You cannot recall friend request that you recalled already.'
     end

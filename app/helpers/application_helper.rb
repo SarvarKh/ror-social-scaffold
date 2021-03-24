@@ -80,5 +80,12 @@ module ApplicationHelper
     )
   end
 
-  def reject_friend_request(user); end
+  def reject_friend_request(user)
+    request = Friendship.find_by(user_id: user.id, friend_id: current_user.id, confirmed: false)
+    link_to(
+      'Deciline a friend request',
+      user_friendship_path(id: request.id, user_id: user.id, friend_id: current_user.id),
+      method: :delete, class: 'btn-alert'
+    )
+  end
 end
