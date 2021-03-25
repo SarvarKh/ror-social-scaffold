@@ -59,6 +59,14 @@ module ApplicationHelper
   def connections_array(friend_id_array)
     pending_users = []
     friend_id_array.each do |e|
+      pending_users.push(User.find(e.friend_id))
+    end
+    pending_users
+  end
+
+  def pending_array(friend_id_array)
+    pending_users = []
+    friend_id_array.each do |e|
       pending_users.push(User.find(e.user_id))
     end
     pending_users

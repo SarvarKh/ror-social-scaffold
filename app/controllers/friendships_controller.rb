@@ -1,7 +1,9 @@
 class FriendshipsController < ApplicationController
   def index
-    @friends = Friendship.where(friend_id: current_user.id, confirmed: true)
-    @invitations = Friendship.where(friend_id: current_user.id, confirmed: false)
+    # @friends = Friendship.where(friend_id: current_user.id, confirmed: true)
+    @friends = current_user.friendships
+    # @invitations = Friendship.where(friend_id: current_user.id, confirmed: false)
+    @invitations = current_user.request_received
   end
 
   def create

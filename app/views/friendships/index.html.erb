@@ -1,8 +1,8 @@
 <div class="invitations-section">
     
-    <% if connections_array(@invitations).length > 0 %>
+    <% if pending_array(@invitations).length > 0 %>
         <h3>Pending friend request invitations:</h3><br>
-        <% connections_array(@invitations).map do |pendig_user| %>
+        <% pending_array(@invitations).map do |pendig_user| %>
             <ul class="pending-invitations">
                 <li>    
                     Name: <%= pendig_user.name %>
