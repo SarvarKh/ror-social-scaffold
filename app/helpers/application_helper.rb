@@ -64,14 +64,6 @@ module ApplicationHelper
     pending_users
   end
 
-  def connections_array_inverse(user_id_array)
-    users = []
-    user_id_array.each do |e|
-      users.push(User.find(e.friend_id))
-    end
-    users
-  end
-
   def accept_friend_request(user)
     request = Friendship.find_by(user: user, friend: current_user)
     link_to(
