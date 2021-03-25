@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  has_many :friendships
-  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :friendships, -> { where confirmed: true }
+  has_many :request_received, -> {where confirmed: false}, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :request_sent, -> {where confirmed: false}, class_name: 'Friendship', foreign_key: 'user_id'
 end

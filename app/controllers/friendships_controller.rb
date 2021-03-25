@@ -1,7 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
     @friends = Friendship.where(friend_id: current_user.id, confirmed: true)
-    @friends_inverse = Friendship.where(user_id: current_user.id, confirmed: true)
     @invitations = Friendship.where(friend_id: current_user.id, confirmed: false)
   end
 
