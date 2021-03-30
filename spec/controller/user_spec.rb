@@ -16,10 +16,6 @@ RSpec.describe User do
   context 'when saved' do
     subject(:user) { User.create }
 
-    # it "is not a new user" do
-    #   expect(user).not_to be_a_new(User)
-    # end
-
     it 'is not a new string' do
       expect(user).not_to be_a_new(String)
     end
