@@ -1,8 +1,8 @@
 <div class="invitations-section">
     
-    <% if connections_array(@invitations).length > 0 %>
+    <% if pending_array(@invitations).length > 0 %>
         <h3>Pending friend request invitations:</h3><br>
-        <% connections_array(@invitations).map do |pendig_user| %>
+        <% pending_array(@invitations).map do |pendig_user| %>
             <ul class="pending-invitations">
                 <li>    
                     Name: <%= pendig_user.name %>
@@ -18,19 +18,9 @@
         <% end %>
     <% end %>
 
-    <% if connections_array(@friends).length > 0 || connections_array_inverse(@friends_inverse).length > 0%>
+    <% if connections_array(@friends).length > 0 %>
         <h3>My friends:</h3><br>
         <% connections_array(@friends).map do |friend| %>
-            <ul class="pending-invitations">
-                <li>    
-                    Name: <%= friend.name %>
-                    <span class="profile-link">
-                        <%= link_to 'See Profile',  user_path(friend), class: 'profile-link' %>
-                    </span>
-                </li>
-            </ul>    
-        <% end %>
-        <% connections_array_inverse(@friends_inverse).map do |friend| %>
             <ul class="pending-invitations">
                 <li>    
                     Name: <%= friend.name %>

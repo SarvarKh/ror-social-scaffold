@@ -3,19 +3,27 @@
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 
 <div align="center">
-  <img src="01_timeline.png?raw=true" width="auto" height="auto"/>
+  <img src="01_timeline.png?raw=true" width="80%" height="auto"/>
 </div>
 
 <div align="center">
-  <img src="02_all_users.png?raw=true" width="auto" height="auto"/>
+  <img src="02_all_users.png?raw=true" width="80%" height="auto"/>
 </div>
 
 <div align="center">
-  <img src="03_connections.png?raw=true" width="auto" height="auto"/>
+  <img src="02_all_users2.png?raw=true" width="80%" height="auto"/>
 </div>
 
 <div align="center">
-  <img src="04_profile.png?raw=true" width="auto" height="auto"/>
+  <img src="03_connections.png?raw=true" width="80%" height="auto"/>
+</div>
+
+<div align="center">
+  <img src="04_profile.png?raw=true" width="80%" height="auto"/>
+</div>
+
+<div align="center">
+  <img src="01_current_db.png?raw=true" width="60%" height="auto"/>
 </div>
 
 ## Built With

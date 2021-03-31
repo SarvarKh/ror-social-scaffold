@@ -59,17 +59,17 @@ module ApplicationHelper
   def connections_array(friend_id_array)
     pending_users = []
     friend_id_array.each do |e|
-      pending_users.push(User.find(e.user_id))
+      pending_users.push(User.find(e.friend_id))
     end
     pending_users
   end
 
-  def connections_array_inverse(user_id_array)
-    users = []
-    user_id_array.each do |e|
-      users.push(User.find(e.friend_id))
+  def pending_array(friend_id_array)
+    pending_users = []
+    friend_id_array.each do |e|
+      pending_users.push(User.find(e.user_id))
     end
-    users
+    pending_users
   end
 
   def accept_friend_request(user)
@@ -80,5 +80,12 @@ module ApplicationHelper
     )
   end
 
-  def reject_friend_request(user); end
+  def reject_friend_request(user)
+    request = Friendship.find_by(user_id: user.id, friend_id: current_user.id, confirmed: false)
+    link_to(
+      'Decline a friend request',
+      user_friendship_path(id: request.id, user_id: user.id, friend_id: current_user.id),
+      method: :delete, class: 'btn-alert'
+    )
+  end
 end
